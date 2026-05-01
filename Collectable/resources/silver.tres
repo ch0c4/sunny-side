@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://df4bu41p5acl0"]
+
+[ext_resource type="Script" uid="uid://c1ae51r4xk88a" path="res://Scripts/Resources/item.gd" id="1_o3cr4"]
+[ext_resource type="Texture2D" uid="uid://bricr8s8nijl6" path="res://Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="1_po71i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbgbg"]
+atlas = ExtResource("1_po71i")
+region = Rect2(880, 352, 16, 16)
+
+[resource]
+script = ExtResource("1_o3cr4")
+name = "Silver"
+plural_name = "Silvers"
+icon = SubResource("AtlasTexture_qbgbg")
+description = "Some silver"
+metadata/_custom_type_script = "uid://c1ae51r4xk88a"

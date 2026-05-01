@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cab367vqxtby3"]
+
+[ext_resource type="Script" uid="uid://u3lnf5psgjyy" path="res://UI/actions_ui.gd" id="1_0pbki"]
+[ext_resource type="PackedScene" uid="uid://ba1jodrndv08" path="res://UI/action_slot_ui.tscn" id="2_ylqqt"]
+
+[node name="ActionsUI" type="HBoxContainer" unique_id=517441972]
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -32.0
+offset_right = 70.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_0pbki")
+
+[node name="ActionSlotUI1" parent="." unique_id=579508598 instance=ExtResource("2_ylqqt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ActionSlotUI2" parent="." unique_id=251457262 instance=ExtResource("2_ylqqt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ActionSlotUI3" parent="." unique_id=1858917582 instance=ExtResource("2_ylqqt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ActionSlotUI4" parent="." unique_id=1282952437 instance=ExtResource("2_ylqqt")]
+unique_name_in_owner = true
+layout_mode = 2

@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://bce0ua8a56yvw"]
+
+[ext_resource type="Texture2D" uid="uid://g4cr41abtwkn" path="res://Assets/Elements/Plants/spr_deco_tree_01_strip4.png" id="1_tbk1m"]
+[ext_resource type="Script" uid="uid://btikup0htvl3g" path="res://Scripts/DamageBoxes/hurtbox.gd" id="2_axm1u"]
+[ext_resource type="Script" uid="uid://b805rvdwhndwj" path="res://Harvestable/Tree/tree_harvestable.gd" id="2_dbpiy"]
+[ext_resource type="PackedScene" uid="uid://b4itrx3k1kubr" path="res://World/interaction.tscn" id="2_dtru4"]
+[ext_resource type="Script" uid="uid://c1tl4g0wht123" path="res://Scripts/StateMachine/state_machine.gd" id="4_ldkie"]
+[ext_resource type="Script" uid="uid://bt0c0h1llpigk" path="res://Harvestable/Tree/tree_idle_state.gd" id="5_ldkie"]
+[ext_resource type="Script" uid="uid://bq7kic7btn708" path="res://Harvestable/Tree/tree_chop_state.gd" id="6_6moot"]
+[ext_resource type="Script" uid="uid://bhn4pqda6t0gp" path="res://Harvestable/Tree/tree_spawn_state.gd" id="6_cb5t4"]
+[ext_resource type="Script" uid="uid://8qu8hj1s5yo0" path="res://Harvestable/Tree/tree_dead_state.gd" id="7_6moot"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_axm1u"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_feaqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dtru4"]
+radius = 17.029387
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6moot"]
+radius = 25.079872
+
+[sub_resource type="Animation" id="Animation_dbpiy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qq5yf"]
+resource_name = "chopped"
+length = 0.5000125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ldkie"]
+resource_name = "idle"
+length = 0.1250125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_833l2"]
+_data = {
+&"RESET": SubResource("Animation_dbpiy"),
+&"chopped": SubResource("Animation_qq5yf"),
+&"idle": SubResource("Animation_ldkie")
+}
+
+[node name="TreeHarvestable" type="Node2D" unique_id=1471941661]
+script = ExtResource("2_dbpiy")
+
+[node name="FloorCollision" type="StaticBody2D" parent="." unique_id=2054432011]
+position = Vector2(0, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorCollision" unique_id=1204101205]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_axm1u")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1961879928]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("2_axm1u")
+metadata/_custom_type_script = "uid://btikup0htvl3g"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=560214806]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_feaqp")
+
+[node name="Interaction" parent="." unique_id=1772981753 node_paths=PackedStringArray("sprite") instance=ExtResource("2_dtru4")]
+collision_layer = 32
+collision_mask = 0
+sprite = NodePath("../TreeSprite")
+
+[node name="SelectSprite" parent="Interaction" index="0" unique_id=1620464418]
+visible = true
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction" unique_id=315276289]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_dtru4")
+
+[node name="SpawnArea" type="Area2D" parent="." unique_id=927886935]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea" unique_id=882357403]
+shape = SubResource("CircleShape2D_6moot")
+
+[node name="TreeSprite" type="Sprite2D" parent="." unique_id=41586292]
+texture = ExtResource("1_tbk1m")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1869287845]
+libraries/ = SubResource("AnimationLibrary_833l2")
+
+[node name="StateMachine" type="Node" parent="." unique_id=91140917 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_ldkie")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://c1tl4g0wht123"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=798884202 node_paths=PackedStringArray("hurtbox", "animation_player")]
+script = ExtResource("5_ldkie")
+hurtbox = NodePath("../../Hurtbox")
+animation_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"
+
+[node name="Spawn" type="Node" parent="StateMachine" unique_id=872393618 node_paths=PackedStringArray("spawn_shape")]
+script = ExtResource("6_cb5t4")
+spawn_shape = NodePath("../../SpawnArea/CollisionShape2D")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"
+
+[node name="Chop" type="Node" parent="StateMachine" unique_id=49951215 node_paths=PackedStringArray("animation_player", "hurtbox")]
+script = ExtResource("6_6moot")
+animation_player = NodePath("../../AnimationPlayer")
+hurtbox = NodePath("../../Hurtbox")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"
+
+[node name="Dead" type="Node" parent="StateMachine" unique_id=93648237]
+script = ExtResource("7_6moot")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"
+
+[editable path="Interaction"]

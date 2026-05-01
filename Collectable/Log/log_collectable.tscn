@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dkyx7j0w7fpjb"]
+
+[ext_resource type="Texture2D" uid="uid://368kfr7tnfc6" path="res://Assets/Elements/Crops/wood.png" id="1_ej7da"]
+[ext_resource type="Script" uid="uid://bpquovkooyqhy" path="res://Collectable/Log/log_collectable.gd" id="2_ykey3"]
+[ext_resource type="Script" uid="uid://c1tl4g0wht123" path="res://Scripts/StateMachine/state_machine.gd" id="3_m470c"]
+[ext_resource type="Script" uid="uid://dxfxf71hvyw07" path="res://Collectable/collectable_spawn_state.gd" id="4_5gbt3"]
+[ext_resource type="Script" uid="uid://bsp75dewoket4" path="res://Collectable/Log/log_collectable_state.gd" id="5_5gbt3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m470c"]
+radius = 7.0
+
+[node name="LogCollectable" type="Node2D" unique_id=1284340833]
+script = ExtResource("2_ykey3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=453715815]
+texture = ExtResource("1_ej7da")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=1946397626]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="PickupShape" type="CollisionShape2D" parent="PickupArea" unique_id=797462914]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_m470c")
+disabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=2110521563]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=1534136239 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_m470c")
+initial_state = NodePath("Spawn")
+metadata/_custom_type_script = "uid://c1tl4g0wht123"
+
+[node name="Spawn" type="Node" parent="StateMachine" unique_id=1355363416 node_paths=PackedStringArray("timer")]
+script = ExtResource("4_5gbt3")
+timer = NodePath("../../Timer")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"
+
+[node name="Collectable" type="Node" parent="StateMachine" unique_id=1456504472 node_paths=PackedStringArray("pickup_area", "pickup_shape")]
+script = ExtResource("5_5gbt3")
+pickup_area = NodePath("../../PickupArea")
+pickup_shape = NodePath("../../PickupArea/PickupShape")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"

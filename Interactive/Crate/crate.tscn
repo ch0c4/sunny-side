@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://733hkq3r1uuu"]
+
+[ext_resource type="Script" uid="uid://b1fhp05y8hco1" path="res://Interactive/Crate/crate.gd" id="1_fyr47"]
+[ext_resource type="PackedScene" uid="uid://b4itrx3k1kubr" path="res://World/interaction.tscn" id="1_m1iqy"]
+[ext_resource type="Texture2D" uid="uid://bricr8s8nijl6" path="res://Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_jkl4h"]
+[ext_resource type="Texture2D" uid="uid://368kfr7tnfc6" path="res://Assets/Elements/Crops/wood.png" id="2_yp2br"]
+[ext_resource type="Script" uid="uid://c1tl4g0wht123" path="res://Scripts/StateMachine/state_machine.gd" id="4_cr2re"]
+[ext_resource type="Script" uid="uid://djb3w3fnrx5pp" path="res://Interactive/Crate/crate_empty_state.gd" id="5_cr2re"]
+[ext_resource type="Script" uid="uid://bjmyot0ewxrmq" path="res://Interactive/Crate/crate_filling_state.gd" id="6_4a3x4"]
+[ext_resource type="Texture2D" uid="uid://ddmamoi8qpftq" path="res://Assets/UI/itemdisc_01.png" id="8_t1dms"]
+[ext_resource type="Script" uid="uid://cvapsbq67h1iq" path="res://Interactive/Crate/crate_filled_state.gd" id="8_w3gij"]
+[ext_resource type="Texture2D" uid="uid://dkpus26ptvuy0" path="res://Assets/UI/axe.png" id="9_w3gij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr2re"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4a3x4"]
+radius = 13.038404
+
+[sub_resource type="Animation" id="Animation_fyr47"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CrateSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_m1iqy"]
+resource_name = "empty"
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CrateSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jkl4h"]
+resource_name = "filled"
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CrateSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jkl4h"]
+_data = {
+&"RESET": SubResource("Animation_fyr47"),
+&"empty": SubResource("Animation_m1iqy"),
+&"filled": SubResource("Animation_jkl4h")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tidbn"]
+texture = ExtResource("8_t1dms")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6snqg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2658i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pawwl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7f4l8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1dms"]
+font_size = 10
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Crate" type="StaticBody2D" unique_id=1029029885]
+script = ExtResource("1_fyr47")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=281611301]
+shape = SubResource("RectangleShape2D_cr2re")
+
+[node name="Interaction" parent="." unique_id=1772981753 node_paths=PackedStringArray("sprite") instance=ExtResource("1_m1iqy")]
+sprite = NodePath("../CrateSprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction" unique_id=1300334003]
+shape = SubResource("CircleShape2D_4a3x4")
+
+[node name="ItemSprite" type="Sprite2D" parent="." unique_id=1523577365]
+visible = false
+position = Vector2(0, -3)
+texture = ExtResource("2_yp2br")
+
+[node name="CrateSprite" type="Sprite2D" parent="." unique_id=782661113]
+texture = ExtResource("2_jkl4h")
+vframes = 2
+region_enabled = true
+region_rect = Rect2(784, 224, 16, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=855762829]
+libraries/ = SubResource("AnimationLibrary_jkl4h")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1251851221 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_cr2re")
+initial_state = NodePath("Empty")
+metadata/_custom_type_script = "uid://c1tl4g0wht123"
+
+[node name="Empty" type="Node" parent="StateMachine" unique_id=650173465 node_paths=PackedStringArray("animation_player", "item_sprite")]
+script = ExtResource("5_cr2re")
+animation_player = NodePath("../../AnimationPlayer")
+item_sprite = NodePath("../../ItemSprite")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"
+
+[node name="Filling" type="Node" parent="StateMachine" unique_id=1615370690 node_paths=PackedStringArray("animation_player", "item_sprite")]
+script = ExtResource("6_4a3x4")
+animation_player = NodePath("../../AnimationPlayer")
+item_sprite = NodePath("../../ItemSprite")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"
+
+[node name="Filled" type="Node" parent="StateMachine" unique_id=994651394]
+script = ExtResource("8_w3gij")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"
+
+[node name="ItemInfoButton" type="Button" parent="." unique_id=303141208]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_tidbn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6snqg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2658i")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_pawwl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7f4l8")
+button_mask = 0
+icon = ExtResource("9_w3gij")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ItemAmountInfoLabel" type="Label" parent="." unique_id=820829211]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 8.0
+offset_right = 20.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "2/15"
+label_settings = SubResource("LabelSettings_t1dms")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="Interaction"]

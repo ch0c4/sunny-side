@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b25w6li5jsxn"]
+
+[ext_resource type="Texture2D" uid="uid://bricr8s8nijl6" path="res://Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="1_4l03g"]
+[ext_resource type="Script" uid="uid://c1ae51r4xk88a" path="res://Scripts/Resources/item.gd" id="1_qaen0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xk5l"]
+atlas = ExtResource("1_4l03g")
+region = Rect2(880, 384, 16, 16)
+
+[resource]
+script = ExtResource("1_qaen0")
+name = "Coal"
+plural_name = "Coals"
+icon = SubResource("AtlasTexture_0xk5l")
+description = "Some coals"
+metadata/_custom_type_script = "uid://c1ae51r4xk88a"

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://decx7i1uu14ja"]
+
+[ext_resource type="Script" uid="uid://bwmx0psyrcnur" path="res://Collectable/Stone/stone_collectable.gd" id="1_xtekc"]
+[ext_resource type="Texture2D" uid="uid://bricr8s8nijl6" path="res://Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="2_t17k4"]
+[ext_resource type="Script" uid="uid://c1tl4g0wht123" path="res://Scripts/StateMachine/state_machine.gd" id="3_6t3fj"]
+[ext_resource type="Script" uid="uid://dxfxf71hvyw07" path="res://Collectable/collectable_spawn_state.gd" id="4_hqyl3"]
+[ext_resource type="Script" uid="uid://nfocc6e4rps4" path="res://Collectable/Stone/stone_collectable_state.gd" id="5_c1m0t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t17k4"]
+radius = 8.062258
+
+[node name="StoneCollectable" type="Node2D" unique_id=1348271102]
+script = ExtResource("1_xtekc")
+
+[node name="StoneSprite" type="Sprite2D" parent="." unique_id=1987311706]
+texture = ExtResource("2_t17k4")
+region_enabled = true
+region_rect = Rect2(880, 352, 16, 16)
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=819189543]
+collision_layer = 0
+collision_mask = 2
+
+[node name="PickupShape" type="CollisionShape2D" parent="PickupArea" unique_id=873343215]
+shape = SubResource("CircleShape2D_t17k4")
+disabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=2007797730]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=642503969 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_6t3fj")
+initial_state = NodePath("Spawn")
+metadata/_custom_type_script = "uid://c1tl4g0wht123"
+
+[node name="Spawn" type="Node" parent="StateMachine" unique_id=636297846 node_paths=PackedStringArray("timer")]
+script = ExtResource("4_hqyl3")
+timer = NodePath("../../Timer")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"
+
+[node name="Collectable" type="Node" parent="StateMachine" unique_id=2053186584 node_paths=PackedStringArray("pickup_area", "pickup_shape")]
+script = ExtResource("5_c1m0t")
+pickup_area = NodePath("../../PickupArea")
+pickup_shape = NodePath("../../PickupArea/PickupShape")
+metadata/_custom_type_script = "uid://cavyjsf1fgghe"

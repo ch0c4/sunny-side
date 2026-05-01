@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b1fbofurtvlgy"]
+
+[ext_resource type="Texture2D" uid="uid://bricr8s8nijl6" path="res://Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="1_u517k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u517k"]
+radius = 5.0
+height = 14.0
+
+[node name="Trunk" type="Sprite2D" unique_id=1563321500]
+texture = ExtResource("1_u517k")
+region_enabled = true
+region_rect = Rect2(512, 80, 16, 16)
+
+[node name="FloorCollision" type="StaticBody2D" parent="." unique_id=702742940]
+position = Vector2(0, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorCollision" unique_id=1383261203]
+position = Vector2(0, -2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_u517k")

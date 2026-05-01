@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b4itrx3k1kubr"]
+
+[ext_resource type="Script" uid="uid://dpronxe67okyb" path="res://World/interaction.gd" id="1_54v62"]
+[ext_resource type="Texture2D" uid="uid://csd7epg3nwmnt" path="res://Assets/UI/selectbox.png" id="2_72psa"]
+
+[node name="Interaction" type="Area2D" unique_id=1772981753]
+script = ExtResource("1_54v62")
+
+[node name="SelectSprite" type="Sprite2D" parent="." unique_id=1620464418]
+visible = false
+texture = ExtResource("2_72psa")

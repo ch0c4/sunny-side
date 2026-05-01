@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://43221pfbt5ki"]
+
+[ext_resource type="Texture2D" uid="uid://bqp8it67uwiqx" path="res://Assets/UI/sword.png" id="1_56drn"]
+[ext_resource type="Script" uid="uid://c1ae51r4xk88a" path="res://Scripts/Resources/item.gd" id="2_eixle"]
+
+[resource]
+script = ExtResource("2_eixle")
+name = "Sword"
+plural_name = "Swords"
+icon = ExtResource("1_56drn")
+description = "Slash some enemies"
+is_equipment = true
+metadata/_custom_type_script = "uid://c1ae51r4xk88a"

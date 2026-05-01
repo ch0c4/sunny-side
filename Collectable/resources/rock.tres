@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c2l7wiaqqfe4t"]
+
+[ext_resource type="Texture2D" uid="uid://bricr8s8nijl6" path="res://Assets/Tileset/spr_tileset_sunnysideworld_16px.png" id="1_7njuy"]
+[ext_resource type="Script" uid="uid://c1ae51r4xk88a" path="res://Scripts/Resources/item.gd" id="1_ieiju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqqng"]
+atlas = ExtResource("1_7njuy")
+region = Rect2(880, 480, 16, 16)
+
+[resource]
+script = ExtResource("1_ieiju")
+name = "Rock"
+plural_name = "Rocks"
+icon = SubResource("AtlasTexture_jqqng")
+description = "Some rock stone"
+metadata/_custom_type_script = "uid://c1ae51r4xk88a"

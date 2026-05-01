@@ -1,0 +1,66 @@
+{
+	"levels": {
+		"res://World/Levels/second_zone.tscn": {
+
+		},
+		"res://World/Levels/start_zone.tscn": {
+			"Trees/@Node2D@12": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@13": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@15": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@16": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@17": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@18": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@19": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@2": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@3": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@4": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@5": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@6": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@7": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@8": {
+				"current_life": 3.0
+			},
+			"Trees/@Node2D@9": {
+				"current_life": 3.0
+			},
+			"Trees/TreeHarvestable": {
+				"current_life": 3.0
+			},
+			"data": {
+				"condition_fullfilled": true
+			}
+		}
+	},
+	"player": {
+
+	},
+	"stash": {
+
+	}
+}

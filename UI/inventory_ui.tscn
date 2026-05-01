@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://3r8aj0lg5gih"]
+
+[ext_resource type="Texture2D" uid="uid://b755yxbxromw1" path="res://Assets/UI/basket.png" id="1_l6l0t"]
+[ext_resource type="Texture2D" uid="uid://d3j7puqrq4pjd" path="res://Assets/UI/hand_open_01.png" id="2_dk10o"]
+[ext_resource type="Script" uid="uid://dcjg0kjbwnmtj" path="res://UI/inventory_ui.gd" id="3_dk10o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6nog"]
+
+[node name="InventoryUI" type="TabContainer" unique_id=250165868]
+custom_minimum_size = Vector2(400, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -20.0
+offset_right = 4.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t6nog")
+tab_alignment = 2
+current_tab = 0
+tab_0/icon = ExtResource("1_l6l0t")
+tab_1/icon = ExtResource("2_dk10o")
+script = ExtResource("3_dk10o")
+
+[node name="Items" type="GridContainer" parent="." unique_id=252930202]
+layout_mode = 2
+columns = 5
+metadata/_tab_index = 0
+
+[node name="Tools" type="GridContainer" parent="." unique_id=1460412755]
+visible = false
+layout_mode = 2
+columns = 5
+metadata/_tab_index = 1

@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ba1jodrndv08"]
+
+[ext_resource type="Script" uid="uid://cixppstt3scjd" path="res://UI/action_slot_ui.gd" id="1_84ab7"]
+[ext_resource type="Texture2D" uid="uid://ddmamoi8qpftq" path="res://Assets/UI/itemdisc_01.png" id="1_mcx0a"]
+[ext_resource type="Texture2D" uid="uid://dofucuma4vq0e" path="res://Assets/UI/itemdisc_02.png" id="2_84ab7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ws5k2"]
+texture = ExtResource("1_mcx0a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6xmr"]
+texture = ExtResource("2_84ab7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dkj5d"]
+texture = ExtResource("2_84ab7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gufh8"]
+texture = ExtResource("2_84ab7")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ws5k2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6xmr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkj5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gufh8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ws5k2"]
+font_size = 12
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ActionSlotUI" type="Button" unique_id=2074604047]
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -608.0
+offset_bottom = -328.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_ws5k2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m6xmr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dkj5d")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gufh8")
+script = ExtResource("1_84ab7")
+
+[node name="ItemButton" type="Button" parent="." unique_id=771167756]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ws5k2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_m6xmr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dkj5d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gufh8")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AmountLabel" type="Label" parent="." unique_id=1501998163]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "2"
+label_settings = SubResource("LabelSettings_ws5k2")
+horizontal_alignment = 1
+vertical_alignment = 1

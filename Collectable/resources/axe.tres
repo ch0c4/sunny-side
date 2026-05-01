@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dl1rpw2ppwnfj"]
+
+[ext_resource type="Texture2D" uid="uid://dkpus26ptvuy0" path="res://Assets/UI/axe.png" id="1_4ikws"]
+[ext_resource type="Script" uid="uid://c1ae51r4xk88a" path="res://Scripts/Resources/item.gd" id="1_4oud5"]
+
+[resource]
+script = ExtResource("1_4oud5")
+name = "Axe"
+plural_name = "Axes"
+icon = ExtResource("1_4ikws")
+description = "Chop some wood"
+is_equipment = true
+metadata/_custom_type_script = "uid://c1ae51r4xk88a"
