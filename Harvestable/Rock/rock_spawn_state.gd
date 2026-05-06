@@ -9,7 +9,7 @@ const STONE_COLLECTABLE = preload("uid://decx7i1uu14ja")
 
 func enter() -> void:
 	var circle := spawn_shape.shape as CircleShape2D
-	var offset := Utils.get_random_point_in_shape(circle)
+	var offset: Vector2 = Utils.get_random_point_in_shape(circle)
 	var spawn_position := spawn_shape.global_position + offset
 	
 	var stone_collectable: StoneCollectable = Utils.instantiate_scene_on_level(STONE_COLLECTABLE, spawn_position)

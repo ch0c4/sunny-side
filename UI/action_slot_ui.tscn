@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cixppstt3scjd" path="res://UI/action_slot_ui.gd" id="1_84ab7"]
 [ext_resource type="Texture2D" uid="uid://ddmamoi8qpftq" path="res://Assets/UI/itemdisc_01.png" id="1_mcx0a"]
 [ext_resource type="Texture2D" uid="uid://dofucuma4vq0e" path="res://Assets/UI/itemdisc_02.png" id="2_84ab7"]
+[ext_resource type="Script" uid="uid://d3omf4eymj6sm" path="res://UI/action_item_button.gd" id="4_bmdlg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ws5k2"]
 texture = ExtResource("1_mcx0a")
@@ -59,6 +60,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_dkj5d")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gufh8")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("4_bmdlg")
 
 [node name="AmountLabel" type="Label" parent="." unique_id=1501998163]
 unique_name_in_owner = true

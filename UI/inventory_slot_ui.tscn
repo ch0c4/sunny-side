@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://egb7uo4tmne4" path="res://Assets/UI/square_button_26x26.png" id="1_ek0kj"]
 [ext_resource type="Script" uid="uid://bb3ayvxljamda" path="res://UI/inventory_slot_ui.gd" id="2_orrfq"]
 [ext_resource type="Texture2D" uid="uid://csd7epg3nwmnt" path="res://Assets/UI/selectbox.png" id="3_jvncw"]
+[ext_resource type="Script" uid="uid://b04w40yvrw27g" path="res://UI/inventory_slot_button.gd" id="4_orrfq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hgn57"]
 atlas = ExtResource("1_ek0kj")
@@ -10,16 +11,19 @@ region = Rect2(11, 155, 26, 28)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a0ak"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_628nx"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_orrfq"]
 texture = ExtResource("3_jvncw")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vuxmn"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ek0kj"]
 texture = ExtResource("3_jvncw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ek0kj"]
 
 [node name="InventorySlotUI" type="NinePatchRect" unique_id=505199895]
 custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
+mouse_filter = 0
 texture = SubResource("AtlasTexture_hgn57")
 script = ExtResource("2_orrfq")
 
@@ -31,9 +35,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6a0ak")
-theme_override_styles/hover = SubResource("StyleBoxTexture_628nx")
-theme_override_styles/focus = SubResource("StyleBoxTexture_vuxmn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_orrfq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ek0kj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ek0kj")
 icon_alignment = 1
+script = ExtResource("4_orrfq")
 
 [node name="Label" type="Label" parent="." unique_id=1535256267]
 layout_mode = 1

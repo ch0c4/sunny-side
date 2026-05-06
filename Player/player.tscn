@@ -80,6 +80,7 @@
 [ext_resource type="Script" uid="uid://c4mijxe857e68" path="res://Player/player_attack_state.gd" id="75_ac8n6"]
 [ext_resource type="Script" uid="uid://c5i46lflpayjq" path="res://Player/player_doing_state.gd" id="77_lhliw"]
 [ext_resource type="Script" uid="uid://cvom7k1wje6dy" path="res://Player/player_mining_state.gd" id="78_11wp0"]
+[ext_resource type="Script" uid="uid://c11yroprtp3qd" path="res://Player/player_inventory_manager.gd" id="80_t7sh4"]
 [ext_resource type="PackedScene" uid="uid://3r8aj0lg5gih" path="res://UI/inventory_ui.tscn" id="81_11slg"]
 
 [sub_resource type="Resource" id="Resource_vtle1"]
@@ -2072,6 +2073,23 @@ metadata/_custom_type_script = "uid://cavyjsf1fgghe"
 [node name="PlayerUI" type="CanvasLayer" parent="." unique_id=1906935081]
 script = ExtResource("72_soeee")
 
-[node name="ActionsUI" parent="PlayerUI" unique_id=517441972 instance=ExtResource("73_o5r0w")]
+[node name="PlayerInventoryManager" type="Control" parent="PlayerUI" unique_id=250940905]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("80_t7sh4")
 
-[node name="InventoryUI" parent="PlayerUI" unique_id=250165868 instance=ExtResource("81_11slg")]
+[node name="ActionsUI" parent="PlayerUI/PlayerInventoryManager" unique_id=517441972 instance=ExtResource("73_o5r0w")]
+layout_mode = 1
+offset_top = -48.0
+offset_bottom = -16.0
+
+[node name="InventoryUI" parent="PlayerUI/PlayerInventoryManager" unique_id=250165868 instance=ExtResource("81_11slg")]
+layout_mode = 1
+offset_left = -100.0
+offset_top = -73.0
+offset_right = 100.0
+offset_bottom = 73.0

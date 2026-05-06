@@ -84,43 +84,6 @@ func has_item(search_item: Item) -> bool:
 	return (item is Item)
 
 
-func swap_item_boxes(index_a: int, other_inventory: Inventory, index_b: int) -> void:
-	var box_a := get_item_box(index_a)
-	var box_b := other_inventory.get_item_box(index_b)
-	if box_a == null or box_b == null:
-		return
-	
-	var temp_item := box_a.item
-	var temp_amount := box_a.amount
-	
-	box_a.set_item_and_amount(box_b.item, box_b.amount)
-	box_b.set_item_and_amount(temp_item, temp_amount)
-	
-	item_box_changed.emit(box_a, index_a)
-	other_inventory.item_box_changed.emit(box_b, index_b)
-
-
-func move_item_box_to(index_from: int, other_inventory: Inventory, index_to: int) -> void:
-	var from_box := get_item_box(index_from)
-	var to_box := other_inventory.get_item_box(index_to)
-	
-	if from_box == null or to_box == null:
-		return
-	
-	if from_box.is_empty():
-		return
-	
-	if not to_box.is_empty():
-		swap_item_boxes(index_from, other_inventory, index_to)
-		return
-	
-	to_box.set_item_and_amount(from_box.item, from_box.amount)
-	from_box.set_item_and_amount(null, 0)
-	
-	item_box_changed.emit(from_box, index_from)
-	other_inventory.item_box_changed.emit(to_box, index_to)
-
-
 func _find_item_box_index_with_item(search_item: Item) -> int:
 	var item_box: = _find_item_box_with_item(search_item)
 	return _item_boxes.find(item_box)

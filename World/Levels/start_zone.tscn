@@ -36,42 +36,55 @@ y_sort_enabled = true
 
 [node name="TreeHarvestable" parent="Trees" unique_id=1471941661 instance=ExtResource("5_lcp7t")]
 position = Vector2(318.17, 179.16998)
+max_life = 3.0
 
 [node name="TreeHarvestable5" parent="Trees" unique_id=829495395 instance=ExtResource("5_lcp7t")]
 position = Vector2(454, 413)
+max_life = 3.0
 
 [node name="TreeHarvestable4" parent="Trees" unique_id=1790090785 instance=ExtResource("5_lcp7t")]
 position = Vector2(534, 144)
+max_life = 3.0
 
 [node name="TreeHarvestable3" parent="Trees" unique_id=979306614 instance=ExtResource("5_lcp7t")]
 position = Vector2(423.4473, 296.66614)
+max_life = 3.0
 
 [node name="TreeHarvestable2" parent="Trees" unique_id=1682300793 instance=ExtResource("5_lcp7t")]
 position = Vector2(260, 267)
+max_life = 3.0
 
 [node name="TreeHarvestable6" parent="Trees" unique_id=1393127177 instance=ExtResource("5_lcp7t")]
 position = Vector2(533, 255)
+max_life = 3.0
 
 [node name="TreeHarvestable7" parent="Trees" unique_id=1844913165 instance=ExtResource("5_lcp7t")]
 position = Vector2(310, 407)
+max_life = 3.0
 
 [node name="TreeHarvestable8" parent="Trees" unique_id=164465272 instance=ExtResource("5_lcp7t")]
 position = Vector2(566, 373)
+max_life = 3.0
 
 [node name="TreeHarvestable9" parent="Trees" unique_id=538609186 instance=ExtResource("5_lcp7t")]
 position = Vector2(620.1415, 171.87277)
+max_life = 3.0
 
 [node name="TreeHarvestable10" parent="Trees" unique_id=262910283 instance=ExtResource("5_lcp7t")]
 position = Vector2(685, 419)
+max_life = 3.0
 
 [node name="TreeHarvestable11" parent="Trees" unique_id=241462819 instance=ExtResource("5_lcp7t")]
 position = Vector2(700, 246)
+max_life = 3.0
 
 [node name="TreeHarvestable12" parent="Trees" unique_id=1150923807 instance=ExtResource("5_lcp7t")]
 position = Vector2(434, 163)
+max_life = 3.0
 
 [node name="TreeHarvestable13" parent="Trees" unique_id=527845093 instance=ExtResource("5_lcp7t")]
 position = Vector2(543.282, 490.881)
+max_life = 3.0
 
 [node name="Crate" parent="." unique_id=1029029885 instance=ExtResource("6_q7w4p")]
 position = Vector2(955.15027, 287.89685)

@@ -7,16 +7,16 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6nog"]
 
 [node name="InventoryUI" type="TabContainer" unique_id=250165868]
-custom_minimum_size = Vector2(400, 250)
+custom_minimum_size = Vector2(200, 146)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -20.0
-offset_right = 4.0
-offset_bottom = 20.0
+offset_left = -90.0
+offset_top = -67.5
+offset_right = 90.0
+offset_bottom = 67.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_t6nog")
@@ -26,13 +26,25 @@ tab_0/icon = ExtResource("1_l6l0t")
 tab_1/icon = ExtResource("2_dk10o")
 script = ExtResource("3_dk10o")
 
-[node name="Items" type="GridContainer" parent="." unique_id=252930202]
+[node name="Items" type="MarginContainer" parent="." unique_id=584927331]
 layout_mode = 2
-columns = 5
 metadata/_tab_index = 0
 
-[node name="Tools" type="GridContainer" parent="." unique_id=1460412755]
+[node name="Items" type="GridContainer" parent="Items" unique_id=252930202]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 5
+
+[node name="Tools" type="MarginContainer" parent="." unique_id=1681894199]
 visible = false
 layout_mode = 2
-columns = 5
 metadata/_tab_index = 1
+
+[node name="Tools" type="GridContainer" parent="Tools" unique_id=1460412755]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 5

@@ -94,6 +94,7 @@ func update_action_slot_ui_item(index: int, item_box: ItemBox) -> void:
 		return
 	
 	var action_slot_ui: ActionSlotUI = _action_slots[index]
+	action_slot_ui.setup(item_box, index)
 	action_slot_ui.update_slot_icon(item_box)
 	action_slot_ui.update_slot_amount(item_box)
 

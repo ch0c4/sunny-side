@@ -11,6 +11,7 @@ radius = 8.062258
 
 [node name="StoneCollectable" type="Node2D" unique_id=1348271102]
 script = ExtResource("1_xtekc")
+stone_type = 0
 
 [node name="StoneSprite" type="Sprite2D" parent="." unique_id=1987311706]
 texture = ExtResource("2_t17k4")

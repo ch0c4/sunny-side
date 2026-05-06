@@ -9,7 +9,7 @@ const LOG_COLLECTABLE = preload("uid://dkyx7j0w7fpjb")
 
 func enter() -> void:
 	var circle := spawn_shape.shape as CircleShape2D
-	var offset := Utils.get_random_point_in_shape(circle)
+	var offset: Vector2 = Utils.get_random_point_in_shape(circle)
 	var spawn_position := spawn_shape.global_position + offset
 	
 	Utils.instantiate_scene_on_level(LOG_COLLECTABLE, spawn_position)

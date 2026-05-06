@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://cuh4gmwolpfi7" path="res://World/world.gd" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://2vw6r2qto62l" path="res://Player/player.tscn" id="3_k8do8"]
 [ext_resource type="Script" uid="uid://djx4qirhg5jjb" path="res://World/character_camera.gd" id="4_3f78f"]
-[ext_resource type="PackedScene" uid="uid://dmn4lpncva0jm" path="res://World/Levels/second_zone.tscn" id="4_k8do8"]
+[ext_resource type="PackedScene" uid="uid://bm4ny0gfj24c4" path="res://World/Levels/start_zone.tscn" id="4_k8do8"]
 
 [node name="World" type="Node2D" unique_id=303090930 node_paths=PackedStringArray("current_level")]
 script = ExtResource("1_f3sb7")
-current_level = NodePath("SecondZone")
+current_level = NodePath("StartZone")
 
 [node name="CharacterCamera" type="Camera2D" parent="." unique_id=1726789175]
 script = ExtResource("4_3f78f")
@@ -16,4 +16,4 @@ metadata/_custom_type_script = "uid://djx4qirhg5jjb"
 [node name="Player" parent="." unique_id=1743082588 instance=ExtResource("3_k8do8")]
 position = Vector2(244.54044, 207.64476)
 
-[node name="SecondZone" parent="." unique_id=522116175 instance=ExtResource("4_k8do8")]
+[node name="StartZone" parent="." unique_id=1316286633 instance=ExtResource("4_k8do8")]
