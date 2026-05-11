@@ -11,6 +11,7 @@ signal in_action(in_progress: bool)
 
 @onready var inventory: Inventory = Stash.inventory
 @onready var action_inventory: Inventory = Stash.action_inventory
+@onready var tools_inventory: Inventory = Stash.tools_inventory
 
 var selected_action_index: int = 0
 var selected_action_item: Item = null:
@@ -45,8 +46,11 @@ func _ready() -> void:
 
 
 func collect_item(item: Item, amount: int) -> void:
-	if action_inventory.is_full() and not inventory.is_full():
-		inventory.add_item(item, amount)
+	if action_inventory.is_full():
+		if item.is_equipment and not tools_inventory.is_full():
+			tools_inventory.add_item(item, amount)
+		elif not item.is_equipment and not inventory.is_full():
+			inventory.add_item(item, amount)
 	else:
 		action_inventory.add_item(item, amount)
 

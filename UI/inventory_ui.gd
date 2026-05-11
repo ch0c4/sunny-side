@@ -13,6 +13,16 @@ func _ready() -> void:
 	_clear_inventory_slots()
 	_fill_items_inventory_slots()
 	_fill_tools_inventory_slots()
+	items_inventory.item_box_changed.connect(_on_items_inventory_item_box_changed)
+	tools_inventory.item_box_changed.connect(_on_tools_inventory_item_box_changed)
+
+
+func _exit_tree() -> void:
+	if items_inventory.item_box_changed.is_connected(_on_items_inventory_item_box_changed):
+		items_inventory.item_box_changed.disconnect(_on_items_inventory_item_box_changed)
+	
+	if tools_inventory.item_box_changed.is_connected(_on_tools_inventory_item_box_changed):
+		tools_inventory.item_box_changed.disconnect(_on_tools_inventory_item_box_changed)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -64,3 +74,19 @@ func _fill_tools_inventory_slots() -> void:
 			slot_ui.setup(tools_inventory, item_box, i)
 			slot_ui.update_slot_icon(item_box)
 			slot_ui.update_slot_amount(item_box)
+
+
+func _on_items_inventory_item_box_changed(item_box: ItemBox, index: int) -> void:
+	var slot_ui := items_grid.get_child(index) as InventorySlotUI
+	if slot_ui == null:
+		return
+	slot_ui.update_slot_icon(item_box)
+	slot_ui.update_slot_amount(item_box)
+
+
+func _on_tools_inventory_item_box_changed(item_box: ItemBox, index: int) -> void:
+	var slot_ui := tools_grid.get_child(index) as InventorySlotUI
+	if slot_ui == null:
+		return
+	slot_ui.update_slot_icon(item_box)
+	slot_ui.update_slot_amount(item_box)

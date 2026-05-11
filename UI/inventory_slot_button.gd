@@ -13,3 +13,9 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	slot_ui.drop_data_on_slot(at_position, data)
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.double_click and event.button_index == MOUSE_BUTTON_LEFT:
+		slot_ui.on_double_click()
+		accept_event()

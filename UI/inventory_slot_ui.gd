@@ -47,6 +47,15 @@ func can_drop_data_on_slot(_at_position: Vector2, data: Variant) -> bool:
 	if not data.has("item_box"):
 		return false
 	
+	var dragged_item_box: ItemBox = data["item_box"]
+	var is_equipment := dragged_item_box.item is Item and dragged_item_box.item.is_equipment
+	var is_tools_slot := (_inventory == Stash.tools_inventory)
+	
+	if is_tools_slot and not is_equipment:
+		return false
+	if not is_tools_slot and is_equipment:
+		return false
+	
 	return true
 
 
@@ -71,7 +80,29 @@ func get_drag_data_from_slot(_at_position: Vector2) -> Variant:
 	return data
 
 
+func on_double_click() -> void:
+	if _item_box == null or _item_box.item is not Item:
+		return
+	
+	var target := Stash.action_inventory
+	if target.is_full() and not target.has_item(_item_box.item):
+		return
+	
+	target.add_item(_item_box.item, _item_box.amount)
+	_inventory.clear_item_box(_slot_index)
+
+
 func drop_data_on_slot(_at_position: Vector2, data: Variant) -> void:
-	var _from_inventory: Inventory = data["from_inventory"]
-	var _from_index: int = data["from_index"]
-	print("drop -> ", data)
+	var from_inventory: Inventory = data["from_inventory"]
+	var from_index: int = data["from_index"]
+	var from_item_box: ItemBox = data["item_box"]
+	
+	var to_item := _item_box.item
+	var to_amount := _item_box.amount
+	
+	_inventory.set_item_box(_slot_index, from_item_box.item, from_item_box.amount)
+	
+	if to_item is Item:
+		from_inventory.set_item_box(from_index, to_item, to_amount)
+	else:
+		from_inventory.clear_item_box(from_index)
